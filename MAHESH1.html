@@ -1,0 +1,287 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KSRM Engineering Library | Premium Portal</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* --- Base Styles --- */
+        * {
+            box-sizing: border-box;
+        }
+        body {
+            margin: 0;
+            font-family: 'Poppins', 'Segoe UI', sans-serif;
+            background-color: #f0f2f5;
+            color: #444;
+        }
+
+        /* --- Hero Header Section --- */
+        .hero {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 60px 20px;
+            text-align: center;
+            border-bottom-left-radius: 50px;
+            border-bottom-right-radius: 50px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+        }
+
+        .hero h1 {
+            margin: 0;
+            font-size: 3rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-top: 10px;
+            opacity: 0.9;
+        }
+
+        /* --- Navigation Bar --- */
+        .nav-container {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: -25px;
+            padding: 0 20px;
+        }
+
+        .nav-btn {
+            background: white;
+            color: #764ba2;
+            text-decoration: none;
+            padding: 12px 25px;
+            margin: 5px;
+            border-radius: 30px;
+            font-weight: bold;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+
+        .nav-btn:hover {
+            transform: translateY(-3px);
+            border-color: #764ba2;
+            box-shadow: 0 6px 15px rgba(118, 75, 162, 0.3);
+        }
+
+        /* --- Main Layout --- */
+        .container {
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 0 20px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        /* --- Branch Cards --- */
+        .card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+            transition: transform 0.3s, box-shadow 0.3s;
+            position: relative;
+            top: 0;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+        }
+
+        /* --- Colorful Headers for Each Branch --- */
+        .card-header {
+            padding: 20px;
+            color: white;
+            font-size: 1.3rem;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+        }
+
+        /* Themes */
+        .theme-cse { background: linear-gradient(to right, #4facfe 0%, #00f2fe 100%); }
+        .theme-ece { background: linear-gradient(to right, #43e97b 0%, #38f9d7 100%); }
+        .theme-mech { background: linear-gradient(to right, #fa709a 0%, #fee140 100%); }
+        .theme-civil { background: linear-gradient(to right, #a18cd1 0%, #fbc2eb 100%); }
+
+        .card-header i {
+            margin-right: 10px;
+            font-size: 1.5rem;
+        }
+
+        /* --- Book List --- */
+        .card-body {
+            padding: 0;
+        }
+
+        .book-item {
+            display: flex;
+            align-items: center;
+            padding: 15px 20px;
+            border-bottom: 1px solid #eee;
+            text-decoration: none;
+            color: #555;
+            transition: background 0.3s;
+        }
+
+        .book-item:last-child {
+            border-bottom: none;
+        }
+
+        .book-item:hover {
+            background-color: #f9f9f9;
+            color: #333;
+        }
+
+        .book-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 15px;
+            color: white;
+            font-size: 1.2rem;
+        }
+
+        /* Icon backgrounds matching themes */
+        .bg-cse { background-color: #4facfe; }
+        .bg-ece { background-color: #43e97b; }
+        .bg-mech { background-color: #fa709a; }
+        .bg-civil { background-color: #a18cd1; }
+
+        .book-info h3 {
+            margin: 0;
+            font-size: 1rem;
+            font-weight: 600;
+        }
+
+        .book-info p {
+            margin: 0;
+            font-size: 0.85rem;
+            color: #999;
+        }
+
+        /* --- Footer --- */
+        footer {
+            text-align: center;
+            padding: 30px;
+            color: #888;
+            font-size: 0.9rem;
+            background-color: #fff;
+            margin-top: 40px;
+            border-top: 1px solid #eee;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header Section -->
+    <header class="hero">
+        <h1>KSRM COLLEGE OF ENGINEERING</h1>
+        <p>Central Digital Library System</p>
+    </header>
+
+    <!-- Navigation Buttons -->
+    <nav class="nav-container">
+        <a href="#cse" class="nav-btn"><i class="fas fa-laptop-code"></i> Computer Science</a>
+        <a href="#ece" class="nav-btn"><i class="fas fa-broadcast-tower"></i> Electronics</a>
+        <a href="#mech" class="nav-btn"><i class="fas fa-cogs"></i> Mechanical</a>
+        <a href="#civil" class="nav-btn"><i class="fas fa-hard-hat"></i> Civil</a>
+    </nav>
+
+    <!-- Main Content Grid -->
+    <div class="container">
+
+        <!-- CSE Card -->
+        <div class="card" id="cse">
+            <div class="card-header theme-cse">
+                <i class="fas fa-laptop-code"></i> CSE Department
+            </div>
+            <div class="card-body">
+                <a href="books/cse/datastructures.pdf" target="_blank" class="book-item">
+                    <div class="book-icon bg-cse"><i class="fas fa-file-pdf"></i></div>
+                    <div class="book-info">
+                        <h3>Data Structures</h3>
+                        <p>Algorithms and Logic</p>
+                    </div>
+                </a>
+                <a href="books/cse/os.pdf" target="_blank" class="book-item">
+                    <div class="book-icon bg-cse"><i class="fas fa-file-pdf"></i></div>
+                    <div class="book-info">
+                        <h3>Operating Systems</h3>
+                        <p>System Architecture</p>
+                    </div>
+                </a>
+            </div>
+        </div>
+
+        <!-- ECE Card -->
+        <div class="card" id="ece">
+            <div class="card-header theme-ece">
+                <i class="fas fa-broadcast-tower"></i> ECE Department
+            </div>
+            <div class="card-body">
+                <a href="books/ece/signals.pdf" target="_blank" class="book-item">
+                    <div class="book-icon bg-ece"><i class="fas fa-file-pdf"></i></div>
+                    <div class="book-info">
+                        <h3>Signals & Systems</h3>
+                        <p>Analog & Digital</p>
+                    </div>
+                </a>
+            </div>
+        </div>
+
+        <!-- Mechanical Card -->
+        <div class="card" id="mech">
+            <div class="card-header theme-mech">
+                <i class="fas fa-cogs"></i> Mechanical Dept
+            </div>
+            <div class="card-body">
+                <a href="books/mech/thermodynamics.pdf" target="_blank" class="book-item">
+                    <div class="book-icon bg-mech"><i class="fas fa-file-pdf"></i></div>
+                    <div class="book-info">
+                        <h3>Thermodynamics</h3>
+                        <p>Heat and Energy</p>
+                    </div>
+                </a>
+            </div>
+        </div>
+
+        <!-- Civil Card -->
+        <div class="card" id="civil">
+            <div class="card-header theme-civil">
+                <i class="fas fa-hard-hat"></i> Civil Department
+            </div>
+            <div class="card-body">
+                <a href="books/civil/structures.pdf" target="_blank" class="book-item">
+                    <div class="book-icon bg-civil"><i class="fas fa-file-pdf"></i></div>
+                    <div class="book-info">
+                        <h3>Structural Engineering</h3>
+                        <p>Design and Analysis</p>
+                    </div>
+                </a>
+            </div>
+        </div>
+
+    </div>
+
+    <footer>
+        &copy; 2024 KSRM College of Engineering. Designed for Students.
+    </footer>
+
+</body>
+</html>
